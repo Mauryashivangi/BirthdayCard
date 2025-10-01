@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+	<link href="~/Content/Styles.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="birthday-card">
+		@*<img src="~/Content/image/pp1.jpg" class="animate" alt="Birthday" />*@
+		<img src="~/Content/image/bb2.jpg" class="animate" alt="Birthday"/>
+		<h1 class="animate">जन्मदिवस की हार्दिक शुभकामनाएं</h1>
+		<p class="animate">आप अपने जीवन में ऐसे ही आगे बढ़ते रहिए..</p>
+		<p class="animate">श्री राम सदा सहायते..🙏</p>
+	</div>
+
+
+	<script>
+		// Birthday message and image animation
+		window.onload = function () {
+			document.querySelector('.birthday-card h1').style.opacity = 0;
+			document.querySelector('.birthday-card img').style.opacity = 0;
+
+			setTimeout(function () {
+				document.querySelector('.birthday-card h1').style.transition = "opacity 2.2s";
+				document.querySelector('.birthday-card img').style.transition = "opacity 2.2s";
+				document.querySelector('.birthday-card h1').style.opacity = 1;
+				document.querySelector('.birthday-card img').style.opacity = 1;
+			}, 700);
+
+			// Confetti (optional decor)
+			for (let i = 0; i < 30; i++) {
+				createConfetti();
+			}
+		};
+
+		function createConfetti() {
+			const confetti = document.createElement('div');
+			confetti.className = 'confetti';
+			confetti.style.left = Math.random() * 100 + 'vw';
+			confetti.style.background = randomColor();
+			confetti.style.animationDelay = Math.random() + 's';
+			document.body.appendChild(confetti);
+			setTimeout(() => confetti.remove(), 4000);
+		}
+
+		function randomColor() {
+			const colors = ['#FFD700', '#FF69B4', '#FF4E50', '#00C9FF', '#F9D423', '#76FF03'];
+			return colors[Math.floor(Math.random() * colors.length)];
+		}
+	</script>
+</body>
+</html>
